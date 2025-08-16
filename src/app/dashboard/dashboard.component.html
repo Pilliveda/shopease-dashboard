@@ -1,0 +1,19 @@
+<h2 class="dashboard-title">ShopEase Dashboard</h2>
+<ul>
+  <li *ngFor="let product of products">
+    {{ product.name }} — ₹{{ product.price }}
+    <button (click)="selectProduct(product)">View Details</button>
+      <span *ngIf="feedbacks[product.id]">
+    | Last feedback: {{ feedbacks[product.id].rating }}/5 – "{{ feedbacks[product.id].comment }}"
+  </span>
+  </li>
+</ul>
+
+<!-- Only show ProductDetails if a product is selected -->
+<app-product-details
+  *ngIf="selectedProduct"
+  [product]="selectedProduct"
+  (feedback)="onFeedbackReceived($event)">
+</app-product-details>
+
+

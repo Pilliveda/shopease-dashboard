@@ -1,0 +1,20 @@
+<div class="details-container">
+  <h3>Product Details</h3>
+  <p><strong>{{ product?.name }}</strong></p>
+  <p>{{ product?.description }}</p>
+  <p>Price: ₹{{ product?.price }}</p>
+
+  <label>
+    Rating:
+    <select [(ngModel)]="rating">
+      <option *ngFor="let r of [1,2,3,4,5]" [value]="r">{{ r }}</option>
+    </select>
+  </label>
+  <br><br>
+  <label>
+    Comment:
+    <input type="text" [(ngModel)]="comment" />
+  </label>
+  <br><br>
+  <button (click)="sendFeedback()">Send Feedback</button>
+</div>
